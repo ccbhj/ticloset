@@ -1,0 +1,27 @@
+<view>
+  <view style="display:flex; height: 400rpx; justify-content:center; align-items:center;">
+    <image mode="center"  src="../../assert/png/logo.svg"> </image>
+  </view>
+
+    <van-field size="large" placeholder="username" custom-style="font-size:17px;" style="display:block; margin-left:50px; margin-right:50px;"></van-field>
+
+    <van-field password placeholder="password" custom-style="font-size:17px;" style="display:block; margin-left:50px; margin-right:50px;"></van-field>
+  
+  <view style="display:block; margin-top:20px">
+    <van-row>
+      <van-col offset="12">
+        <van-button id="cancel_btn" custom-style="color:black; padding-top:100dp; font-family:'Helvetica Neue', sans-serif;" color="#fce4ec" type="primary" size="small" block>
+            CANCEL
+        </van-button>
+      </van-col>
+
+      <van-col offset="2">
+        <van-button id="login_btn" custom-style="color:black; font-family: 'Helvetica Neue', sans-serif;" color="#fce4ec" type="primary" size="small" block>
+            LOGIN
+        </van-button>
+      </van-col>
+
+    </van-row>
+  </view>
+
+</view>
