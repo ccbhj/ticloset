@@ -1,0 +1,27 @@
+{
+  "name": "ticloset",
+  "version": "1.0.0",
+  "description": "时光橱",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.0.4",
+    "miniprogram-sm-crypto": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccbhj/ticloset.git"
+  },
+  "keywords": [
+    "ticloset"
+  ],
+  "author": "ccbhj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ccbhj/ticloset/issues"
+  },
+  "homepage": "https://github.com/ccbhj/ticloset#readme"
+}

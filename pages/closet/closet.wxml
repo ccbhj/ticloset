@@ -1,0 +1,100 @@
+<!--pages/closet/closet.wxml-->
+
+<!-- 导航栏-->
+<view id="navbar" style="display:block;">
+  <van-nav-bar
+    custom-class="navbar"
+    title="时光橱"
+    fixed
+    safe-area-inset-top="false"
+    bind:click-left="onClickNav"
+    bind:click-right="onClickSearch" >
+    <van-icon style="margin-bottom:12px;" name="orders-o" size="20px" slot="left"/>
+    <van-icon style="margin-bottom:12px;" name="search" size="20px" slot="right"/>
+  </van-nav-bar>
+</view>
+
+<!-- 滚动展示 -->
+<view style="display:block; padding-top:44px; ">
+  <scroll-view class="scroll-view" enable-flex="true" scroll-x="true" scroll-top="44px" style="padding-top:50px; height: {{ windowHeight - 44}}px;">
+    <!-- for -->
+    <block wx:for="{{dataList}}" wx:key="name">
+
+      <!-- if index % 3 == 0-->
+      <block wx:if="{{index % 3 == 0 }}"><!--{{{-->
+        <scroll-view scroll-y style="margin-left:{{columnPadding}}px; width: {{ columnWidth }}px; height: inherit;">
+          <view 
+            style="width:inherit; margin-right:{{ paddingWidth }}px; margin-bottom: 50px;">
+            <image 
+              src="{{dataList[index].imageUrl}}" 
+              style="width: {{ columnWidth - paddingWidth }}px;" 
+              mode="aspectFill"
+              lazy-load />
+            <text id="element-text"> {{item.name}} </text>
+          </view><!--}}}-->
+
+          <!-- if index % 3 == 1 -->
+          <view wx:if="{{index < dataList.length - 1}}" style="width: inherit; margin-left: {{ paddingWidth }}px"><!--{{{-->
+            <image 
+              src="{{dataList[index+1].imageUrl}}" 
+              style="width: {{ columnWidth - paddingWidth }}px;" 
+              mode="aspectFill"
+              lazy-load />
+            <text id="element-text"> {{dataList[index+1].name}} </text>
+          </view>
+        </scroll-view>
+      </block><!--}}}-->
+
+      <!-- else if index 取余3结果是2 -->
+      <view wx:elif="{{index % 3 == 2}}" ><!--{{{-->
+        <scroll-view scroll-y style="margin-left:{{columnPadding}}px; width: {{ columnWidth }}px; height: inherit;">
+          <view style="margin-top: 70%; width:inherit;">
+            <image 
+              src="{{dataList[index].imageUrl}}" 
+              style="width: {{ columnWidth - paddingWidth }}px;" 
+              mode="aspectFill"
+              lazy-load />
+            <text id="element-text"> {{item.name}} </text>
+          </view>
+        </scroll-view>
+      </view><!--}}}-->
+
+    </block>
+  </scroll-view>
+</view>
+
+<!-- 左侧弹出导航标签页 --><!--{{{-->
+<van-popup show="{{ showSideBar }}" position="left" bind:close="onSideBarClose" custom-style="width: 20%; height: 100%;"
+  >
+  <view style="display:flex; justify-content:center; align-items:center; margin-top:12p; margin-bottom: 12px;">
+    <van-image 
+      id="avatar"
+      use-error-slot
+      round
+      src="{{ avatarUrl }}"
+      width="3rem"
+      height="3rem">
+      <text slot="error">加载失败</text>
+    </van-image>
+  </view>
+
+  <van-sidebar active-key="{{ activeKey }}" bind:change="onChange" >
+    <van-sidebar-item title="标签名称" />
+    <van-sidebar-item title="标签名称" />
+    <van-sidebar-item title="标签名称" />
+  </van-sidebar>
+</van-popup>
+<!--}}}-->
+
+<!-- 点击右侧按钮弹出搜索框 --><!--{{{-->
+<van-popup show="{{ showSearchBar }}" position="top" bind:close="onSearchBarClose"
+  >
+  <van-search
+    id="searchContent"
+    value="{{ value }}"
+    placeholder="请输入搜索关键词"
+    show-action
+    bind:search="onSearch"
+    bind:cancel="onCancelSearch"
+    />
+</van-popup><!--}}}-->

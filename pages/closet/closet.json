@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-nav-bar": "../../miniprogram_npm/@vant/weapp/nav-bar/index",
+    "van-icon": "../../miniprogram_npm/@vant/weapp/icon/index",
+    "van-sidebar": "../../miniprogram_npm/@vant/weapp/sidebar/index",
+    "van-sidebar-item": "../../miniprogram_npm/@vant/weapp/sidebar-item/index",
+    "van-popup": "../../miniprogram_npm/@vant/weapp/popup/index",
+    "van-image": "../../miniprogram_npm/@vant/weapp/image/index",
+    "van-search": "../../miniprogram_npm/@vant/weapp/search/index"
+  }
+}
